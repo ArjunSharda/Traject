@@ -13,7 +13,8 @@ export async function generateStaticParams() {
     }))
 }
 
-export default function OpportunityPage({ params }: { params: { id: string } }) {
+export default async function OpportunityPage(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const opportunity = opportunities.find((opp) => opp.id === params.id)
 
     if (!opportunity) {
@@ -83,4 +84,3 @@ export default function OpportunityPage({ params }: { params: { id: string } }) 
         </ThemeProvider>
     )
 }
-

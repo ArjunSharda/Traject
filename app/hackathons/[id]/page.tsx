@@ -13,7 +13,8 @@ export async function generateStaticParams() {
     }))
 }
 
-export default function HackathonPage({ params }: { params: { id: string } }) {
+export default async function HackathonPage(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const hackathon = hackathons.find((hack) => hack.id === params.id)
 
     if (!hackathon) {

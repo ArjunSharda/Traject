@@ -6,10 +6,10 @@ import { Briefcase, Code, Lightbulb, GraduationCap, Gamepad2, Crosshair, ArrowRi
 
 const moveLinks = [
     {
-        title: "Internships",
-        description: "Find exciting internship opportunities in tech.",
+        title: "Opportunities",
+        description: "Find exciting opportunities in tech.",
         icon: Briefcase,
-        href: "/internships",
+        href: "/opportunities",
     },
     {
         title: "Hackathons",

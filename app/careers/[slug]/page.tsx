@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-
 const careers = {
     "cybersecurity": {
         title: "Cybersecurity",
@@ -11,7 +10,6 @@ const careers = {
         content: `
       Cybersecurity professionals are the guardians of the digital world. They protect organizations
       from cyber threats, ensure data privacy, and maintain the integrity of information systems.
-      
       Key areas of focus:
       - Network Security
       - Application Security
@@ -19,7 +17,6 @@ const careers = {
       - Cloud Security
       - Incident Response
       - Security Architecture
-      
       Required skills:
       - Programming fundamentals
       - Network protocols
@@ -35,7 +32,6 @@ const careers = {
         content: `
       Computer Science is the foundation of modern technology. It encompasses the study of computation,
       algorithms, data structures, and software development.
-      
       Key areas of focus:
       - Software Engineering
       - Algorithms and Data Structures
@@ -43,7 +39,6 @@ const careers = {
       - Operating Systems
       - Artificial Intelligence
       - Computer Networks
-      
       Required skills:
       - Programming languages
       - System design
@@ -59,7 +54,6 @@ const careers = {
         content: `
       Robotics combines mechanical engineering, electrical engineering, and computer science to create
       intelligent machines that can perform tasks autonomously or semi-autonomously.
-      
       Key areas of focus:
       - Robot Design and Construction
       - Control Systems
@@ -67,7 +61,6 @@ const careers = {
       - Artificial Intelligence
       - Human-Robot Interaction
       - Sensor Integration
-      
       Required skills:
       - Programming (C++, Python, ROS)
       - Mechanical design
@@ -83,7 +76,6 @@ const careers = {
         content: `
       Data Scientists extract insights from large datasets using statistical analysis, machine learning,
       and data visualization techniques to solve complex business problems.
-      
       Key areas of focus:
       - Statistical Analysis
       - Machine Learning
@@ -91,7 +83,6 @@ const careers = {
       - Big Data Technologies
       - Predictive Modeling
       - Data Mining
-      
       Required skills:
       - Programming (Python, R)
       - Statistical analysis
@@ -107,7 +98,6 @@ const careers = {
         content: `
       Artificial Intelligence professionals develop systems that can perform tasks that typically
       require human intelligence, such as visual perception, speech recognition, and decision-making.
-      
       Key areas of focus:
       - Machine Learning
       - Natural Language Processing
@@ -115,7 +105,6 @@ const careers = {
       - Robotics
       - Expert Systems
       - Neural Networks
-      
       Required skills:
       - Programming (Python, Java, C++)
       - Mathematics and statistics
@@ -131,7 +120,6 @@ const careers = {
         content: `
       Web Developers create and maintain websites and web applications, ensuring they are functional,
       user-friendly, and visually appealing across different devices and browsers.
-      
       Key areas of focus:
       - Front-end Development
       - Back-end Development
@@ -139,7 +127,6 @@ const careers = {
       - Web Design
       - Web Security
       - Performance Optimization
-      
       Required skills:
       - HTML, CSS, JavaScript
       - Front-end frameworks (React, Vue, Angular)
@@ -155,7 +142,6 @@ const careers = {
         content: `
       Machine Learning engineers create algorithms and models that allow computer systems to improve
       their performance on a specific task through experience and data.
-      
       Key areas of focus:
       - Supervised Learning
       - Unsupervised Learning
@@ -163,7 +149,6 @@ const careers = {
       - Deep Learning
       - Natural Language Processing
       - Computer Vision
-      
       Required skills:
       - Programming (Python, R)
       - Mathematics and statistics
@@ -179,7 +164,6 @@ const careers = {
         content: `
       Cloud Computing professionals design, implement, and manage scalable and flexible computing
       resources delivered over the internet, enabling businesses to reduce costs and increase efficiency.
-      
       Key areas of focus:
       - Cloud Architecture
       - Cloud Security
@@ -187,7 +171,6 @@ const careers = {
       - Serverless Computing
       - Containerization
       - Cloud-native Development
-      
       Required skills:
       - Cloud platforms (AWS, Azure, GCP)
       - Virtualization technologies
@@ -203,7 +186,6 @@ const careers = {
         content: `
       DevOps engineers bridge the gap between software development and IT operations, implementing
       practices that automate and integrate the processes between software development and IT teams.
-      
       Key areas of focus:
       - Continuous Integration/Continuous Deployment (CI/CD)
       - Infrastructure as Code
@@ -211,7 +193,6 @@ const careers = {
       - Monitoring and Logging
       - Containerization and Orchestration
       - Cloud Computing
-      
       Required skills:
       - Programming and scripting
       - Version control systems
@@ -222,14 +203,12 @@ const careers = {
     `
     }
 }
-
-export default function CareerPage({ params }: { params: { slug: string } }) {
+export default async function CareerPage(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
     const career = careers[params.slug as keyof typeof careers]
-
     if (!career) {
         notFound()
     }
-
     return (
         <div className="min-h-screen flex flex-col bg-background text-foreground">
             <Navbar />

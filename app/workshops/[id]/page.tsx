@@ -13,7 +13,8 @@ export async function generateStaticParams() {
     }))
 }
 
-export default function WorkshopPage({ params }: { params: { id: string } }) {
+export default async function WorkshopPage(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const workshop = workshops.find((w) => w.id === params.id)
 
     if (!workshop) {
