@@ -6,28 +6,28 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TechPath - Discover Your Future in Tech",
-  description: "Explore internships, hackathons, and career paths in technology",
+    title: "TechPath - Discover Your Future in Tech",
+    description: "Explore internships, hackathons, and career paths in technology",
 }
 
 export default function RootLayout({
-                                     children,
+                                       children,
                                    }: Readonly<{
-  children: React.ReactNode
+    children: React.ReactNode
 }>) {
-  return (
-      <html lang="en" suppressHydrationWarning className="dark">
-      <body className={`${inter.className} min-h-screen bg-black antialiased`}>
-      <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-      >
-        {children}
-      </ThemeProvider>
-      </body>
-      </html>
-  )
+    return (
+        <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased`}>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange
+        >
+            {children}
+        </ThemeProvider>
+        </body>
+        </html>
+    )
 }
 
