@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-    title: "TechPath - Discover Your Future in Tech",
+    title: "Traject - Discover Your Future in Tech",
     description: "Explore internships, hackathons, and career paths in technology",
 }
 
